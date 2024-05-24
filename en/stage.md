@@ -6,7 +6,7 @@
 4. Disable the USB ports, press **Win+R**, write **gpedit.msc** and go to **Local Computer Policy > Computer Configuration > Administrative Templates > System > Removable Storage Access** and enable the deny rule **Deny all access**
 5. To disable on **powershell.exe**, you need to go to **"Programs and Features"** in the control panel and in the **"Turn Windows features on or off"** tab uncheck **Windows PowerShell 2.0**. To disable **cmd.exe** write **gpedit.msc**, go to **User Configuration > Administrative Templates > System** and select **Prohibit command line use**, check the **Enabled** checkbox and in the parameters select **Yes**, then in **Win+R** write the command **gpupdate /force** to update the policy
 6. For the visual, delete the folders **Download, Picture, Video** and others from **My Computer**:
-Press **Win+R**, write **gpedit.msc**, go to **HKEY_LOCAL_MACHINE > SOFTWARE > Microsoft > Windows > CurrentVersion > Explorer > FolderDescriptions**, and look for the folders we need:
+Press **Win+R**, write **regedit.msc**, go to **HKEY_LOCAL_MACHINE > SOFTWARE > Microsoft > Windows > CurrentVersion > Explorer > FolderDescriptions**, and look for the folders we need:
 ```sh
 
 Desktop: {B4BFCC3A-DB2C-424C-B029-7FE99A87C641}
@@ -15,6 +15,7 @@ Downloads: {7d83ee9b-2244-4e70-b1f5-5393042af1e4}
 Music: {a0c69a99-21c8-4671-8703-7934162fcf1d}
 Pictures: {0ddd015d-b06c-45d5-8c4c-f59713854639}
 Videos: {35286a68-3c57-41a1-bbb1-0eae73d76c95}
+3d_Objects: {31C0DD25-9439-4F12-BF41-7FF4EDA38722}
 ```
 Open the **PropertyBag** folder, and change the **ThisPCPolicy** value from **Show** to **Hide**
 

@@ -6,7 +6,7 @@
 4. Отключаем USB порты, нажимаем **Win+R**, пишем **gpedit.msc** и заходим **Local Computer Policy > Computer Configuration > Administrative Templates > System > Removable Storage Access** и включаем правило запрета **Deny all access** 
 5. Запрет на **powershell.exe**, нужно зайти в **"Programs and Features"** в панеле управления и во вкладке **"Turn Windows features on or off"** снять галочку с **Windows PowerShell 2.0**. Для запрета **cmd.exe** пишем **gpedit.msc**, заходим в **User Configuration > Administrative Templates > System** и выбираем **Запрет использвания командной строки**, ставим галочку **Включено** и в параметрах выбираем **Да**, после в **Win+R** пишем команду **gpupdate /force** для обновления политики
 6. Удаляем для визуала с **Мой компьютера** папки **Download, Picture, Video** и другие:
-Нажимаем **Win+R**, пишем **gpedit.msc**, заходим **HKEY­_LOCAL_MACHINE > SOFTWARE > Microsoft > Windows > CurrentVersion > Explorer > FolderDescriptions**, и ищем нужные нам папки:
+Нажимаем **Win+R**, пишем **regedit.msc**, заходим **HKEY­_LOCAL_MACHINE > SOFTWARE > Microsoft > Windows > CurrentVersion > Explorer > FolderDescriptions**, и ищем нужные нам папки:
 ```sh
 
 Desktop: {B4BFCC3A-DB2C-424C-B029-7FE99A87C641}
@@ -15,6 +15,7 @@ Downloads: {7d83ee9b-2244-4e70-b1f5-5393042af1e4}
 Music: {a0c69a99-21c8-4671-8703-7934162fcf1d}
 Pictures: {0ddd015d-b06c-45d5-8c4c-f59713854639}
 Videos: {35286a68-3c57-41a1-bbb1-0eae73d76c95}
+3d_Objects: {31C0DD25-9439-4F12-BF41-7FF4EDA38722}
 ```
 Открываем папку **PropertyBag**, и меняем значение **ThisPCPolicy** с **Show** на **Hide** 
 
